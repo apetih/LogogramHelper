@@ -88,6 +88,8 @@ namespace LogogramHelper.Windows
                 var total = new List<int>();
                 var logosNames = new List<string>();
                 recipe.ForEach(item => {
+                    if (!LogogramStock.ContainsKey(item.LogogramID))
+                        LogogramStock.Add(item.LogogramID, 0);
                     total.Add(LogogramStock[item.LogogramID] / item.Quantity);
                     for (var j = 0; j < item.Quantity; j++) logosNames.Add(Logograms[item.LogogramID].Name);
                 });

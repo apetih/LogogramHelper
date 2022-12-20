@@ -41,8 +41,6 @@ namespace LogogramHelper
             this.Configuration = this.PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
             this.Configuration.Initialize(this.PluginInterface);
 
-            PluginLog.Debug($"{PluginInterface.GetPluginConfigDirectory}");
-
             LoadData();
 
             WindowSystem.AddWindow(new MainWindow(this));
