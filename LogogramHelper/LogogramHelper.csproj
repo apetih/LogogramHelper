@@ -34,7 +34,8 @@
   <PropertyGroup>
     <DalamudLibPath>$(appdata)\XIVLauncher\addon\Hooks\dev\</DalamudLibPath>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <RepositoryType>https://github.com/apetih/LogogramHelper</RepositoryType>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/apetih/LogogramHelper</RepositoryUrl>
   </PropertyGroup>
   
    <PropertyGroup Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Linux)))'">
