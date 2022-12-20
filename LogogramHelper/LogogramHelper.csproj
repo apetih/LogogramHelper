@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Authors></Authors>
+    <Authors>apetih</Authors>
     <Company></Company>
     <Version>0.0.0.1</Version>
-    <Description>A sample plugin.</Description>
+    <Description>Helper plugin for Eureka's Logos Actions</Description>
     <Copyright></Copyright>
-    <PackageProjectUrl>https://github.com/goatcorp/SamplePlugin</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/apetih/LogogramHelper</PackageProjectUrl>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -21,22 +21,38 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="..\Data\goat.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Visible>false</Visible>
-    </Content>
+      <Content Include="..\Data\logograms.json">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+          <Visible>false</Visible>
+      </Content>
+      <Content Include="..\Data\logosActions.json">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+          <Visible>false</Visible>
+      </Content>
   </ItemGroup>
 
   <PropertyGroup>
     <DalamudLibPath>$(appdata)\XIVLauncher\addon\Hooks\dev\</DalamudLibPath>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryType>https://github.com/apetih/LogogramHelper</RepositoryType>
   </PropertyGroup>
   
    <PropertyGroup Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Linux)))'">
     <DalamudLibPath>$(DALAMUD_HOME)/</DalamudLibPath>
   </PropertyGroup>
+  
+   <ItemGroup>
+     <None Include="..\README.md">
+       <Pack>True</Pack>
+       <PackagePath>\</PackagePath>
+     </None>
+   </ItemGroup>
+  
+   <ItemGroup>
+     <PackageReference Include="DalamudPackager" Version="2.1.8" />
+   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="DalamudPackager" Version="2.1.8" />
     <Reference Include="FFXIVClientStructs">
       <HintPath>$(DalamudLibPath)FFXIVClientStructs.dll</HintPath>
       <Private>false</Private>

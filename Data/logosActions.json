@@ -1,0 +1,1221 @@
+[{
+    "Name": "Wisdom of the Aetherweaver",
+    "IconID": 64601,
+    "Type": "Spell",
+    "Recast": "10s",
+    "Description": "Increases magic damage dealt by 60%%.\nCannot be used with other Wisdom abilities.\nEffect ends upon reuse or upon replacement of duty action.",
+    "Recipes": [
+        [{
+            "LogogramID": 24015,
+            "Quantity": 1
+        }]
+    ]
+}, {
+    "Name": "Wisdom of the Martialist",
+    "IconID": 64602,
+    "Type": "Spell",
+    "Recast": "10s",
+    "Description": "Increases damage dealt by 40%%.\nCannot be used with other Wisdom abilities.\nEffect ends upon reuse or upon replacement of duty action.",
+    "Recipes": [
+        [{
+            "LogogramID": 24016,
+            "Quantity": 1
+        }]
+    ]
+}, {
+    "Name": "Wisdom of the Platebearer",
+    "IconID": 64603,
+    "Type": "Spell",
+    "Recast": "10s",
+    "Description": "Increases defense by 3,000 and maximum HP by 50%%.\nCannot be used with other Wisdom abilities.\nEffect ends upon reuse or upon replacement of duty action.",
+    "Recipes": [
+        [{
+            "LogogramID": 24017,
+            "Quantity": 1
+        }]
+    ]
+}, {
+    "Name": "Wisdom of the Guardian",
+    "IconID": 64604,
+    "Type": "Spell",
+    "Recast": "10s",
+    "Description": "Increases defense by 1,800 and maximum HP by 10%%.\nCannot be used with other Wisdom abilities.\nEffect ends upon reuse or upon replacement of duty action.",
+    "Recipes": [
+        [{
+            "LogogramID": 24018,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24017,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24022,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24017,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24035,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24017,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24037,
+            "Quantity": 2
+        }],
+        [{
+            "LogogramID": 24035,
+            "Quantity": 3
+        }]
+    ]
+}, {
+    "Name": "Wisdom of the Ordained",
+    "IconID": 64605,
+    "Type": "Spell",
+    "Recast": "10s",
+    "Description": "Increases maximum MP by 50%% and healing magic potency by 25%%.\nCannot be used with other Wisdom abilities.\nEffect ends upon reuse or upon replacement of duty action.",
+    "Recipes": [
+        [{
+            "LogogramID": 24019,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24015,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24036,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24015,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24033,
+            "Quantity": 2
+        }],
+        [{
+            "LogogramID": 24034,
+            "Quantity": 3
+        }]
+    ]
+}, {
+    "Name": "Wisdom of the Skirmisher",
+    "IconID": 64606,
+    "Type": "Spell",
+    "Recast": "10s",
+    "Description": "Increases damage dealt by 20%%.\nCannot be used with other Wisdom abilities.\nEffect ends upon reuse or upon replacement of duty action.",
+    "Recipes": [
+        [{
+            "LogogramID": 24020,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24016,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24028,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24016,
+            "Quantity": 3
+        }]
+    ]
+}, {
+    "Name": "Wisdom of the Watcher",
+    "IconID": 64607,
+    "Type": "Spell",
+    "Recast": "10s",
+    "Description": "Increases evasion by 25%% while reducing damage dealt by 5%%.\nCannot be used with other Wisdom abilities.\nEffect ends upon reuse or upon replacement of duty action.",
+    "Recipes": [
+        [{
+            "LogogramID": 24029,
+            "Quantity": 2
+        }]
+    ]
+}, {
+    "Name": "Wisdom of the Templar",
+    "IconID": 64608,
+    "Type": "Spell",
+    "Recast": "10s",
+    "Description": "Increases healing magic potency by 50%% and maximum HP by 30%%, while reducing damage dealt by 5%%.\nCannot be used with other Wisdom abilities.\nEffect ends upon reuse or upon replacement of duty action.",
+    "Recipes": [
+        [{
+            "LogogramID": 24020,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24034,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24020,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24035,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24017,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24033,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24035,
+            "Quantity": 1
+        }]
+    ]
+}, {
+    "Name": "Wisdom of the Irregular",
+    "IconID": 64609,
+    "Type": "Spell",
+    "Recast": "10s",
+    "Description": "Increases damage dealt by 30%% while reducing magic defense by 60%%.\nCannot be used with other Wisdom abilities.\nEffect ends upon reuse or upon replacement of duty action.",
+    "Recipes": [
+        [{
+            "LogogramID": 24020,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24018,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24016,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24037,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24020,
+            "Quantity": 1
+        }]
+    ]
+}, {
+    "Name": "Wisdom of the Breathtaker",
+    "IconID": 64610,
+    "Type": "Spell",
+    "Recast": "10s",
+    "Description": "Increases poison resistance and movement speed, including mount speed, and increases evasion by 10%%.\nCannot be used with other Wisdom abilities.\nEffect ends upon reuse or upon replacement of duty action.",
+    "Recipes": [
+        [{
+            "LogogramID": 24810,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24025,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24029,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24029,
+            "Quantity": 3
+        }],
+        [{
+            "LogogramID": 24025,
+            "Quantity": 3
+        }]
+    ]
+}, {
+    "Name": "Spirit of the Remembered",
+    "IconID": 64611,
+    "Type": "Ability",
+    "Duration": "180m",
+    "Recast": "10s",
+    "Description": "Increases maximum HP by 10%% and accuracy by 30%%.\nAdditional Effect: Grants a 70%% chance of automatic revival upon KO",
+    "Recipes": [
+        [{
+            "LogogramID": 24021,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24016,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24018,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24015,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24016,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24017,
+            "Quantity": 1
+        }]
+    ]
+}, {
+    "Name": "Protect L",
+    "IconID": 64612,
+    "Type": "Spell",
+    "Duration": "30m",
+    "Cast": "2.5s",
+    "Recast": "2.5s",
+    "Description": "Increases the physical defense of target by 1,000.",
+    "Recipes": [
+        [{
+            "LogogramID": 24022,
+            "Quantity": 1
+        }]
+    ]
+}, {
+    "Name": "Shell L",
+    "IconID": 64613,
+    "Type": "Spell",
+    "Duration": "30m",
+    "Cast": "2.5s",
+    "Recast": "2.5s",
+    "Description": "Increases the magic defense of target by 1,000.",
+    "Recipes": [
+        [{
+            "LogogramID": 24023,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24036,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24022,
+            "Quantity": 1
+        }]
+    ]
+}, {
+    "Name": "Death L",
+    "IconID": 64641,
+    "Type": "Spell",
+    "Cast": "5s",
+    "Recast": "300s",
+    "Description": "KOs target. The less the target's HP, the greater the chance of success.",
+    "Recipes": [
+        [{
+            "LogogramID": 24038,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24027,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24038,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24031,
+            "Quantity": 2
+        }],
+        [{
+            "LogogramID": 24015,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24024,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24038,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24027,
+            "Quantity": 3
+        }]
+    ]
+}, {
+    "Name": "Focus L",
+    "IconID": 64642,
+    "Type": "Ability",
+    "Duration": "30m",
+    "Recast": "2.5s",
+    "Description": "Grants a stack of Boost, up to a maximum of 16.\nBoost Bonus: Increases potency of next weaponskill by 30%% per stack\nShares a recast timer with all weaponskills.",
+    "Recipes": [
+        [{
+            "LogogramID": 24020,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24032,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24032,
+            "Quantity": 3
+        }]
+    ]
+}, {
+    "Name": "Paralyze L",
+    "IconID": 64614,
+    "Type": "Spell",
+    "Duration": "60s",
+    "Cast": "2.5s",
+    "Recast": "2.5s",
+    "Description": "Afflicts target with Paralysis.",
+    "Recipes": [
+        [{
+            "LogogramID": 24024,
+            "Quantity": 1
+        }]
+    ]
+}, {
+    "Name": "Paralyze L III",
+    "IconID": 64615,
+    "Type": "Spell",
+    "Duration": "60s",
+    "Cast": "2.5s",
+    "Recast": "2.5s",
+    "Description": "Afflicts target and all neaby enemies with Paralysis.",
+    "Recipes": [
+        [{
+            "LogogramID": 24024,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24026,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24024,
+            "Quantity": 3
+        }],
+        [{
+            "LogogramID": 24015,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24024,
+            "Quantity": 2
+        }]
+    ]
+}, {
+    "Name": "Swift L",
+    "IconID": 64643,
+    "Type": "Ability",
+    "Duration": "10",
+    "Recast": "90s",
+    "Description": "Greatly increases movement speed.",
+    "Recipes": [
+        [{
+            "LogogramID": 24025,
+            "Quantity": 2
+        }],
+        [{
+            "LogogramID": 24030,
+            "Quantity": 2
+        }, {
+            "LogogramID": 24025,
+            "Quantity": 1
+        }]
+    ]
+}, {
+    "Name": "Featherfoot L",
+    "IconID": 64616,
+    "Type": "Ability",
+    "Duration": "45s",
+    "Recast": "90s",
+    "Description": "Increases evasion by 15%%.",
+    "Recipes": [
+        [{
+            "LogogramID": 24025,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24028,
+            "Quantity": 2
+        }]
+    ]
+}, {
+    "Name": "Spirit Dart L",
+    "IconID": 64617,
+    "Type": "Weaponskill",
+    "Duration": "60s",
+    "Recast": "2.5s",
+    "Description": "Delivers a ranged attack with a potency of 100.\nAdditional Effect: Afflicts target with Spirit Dart L, increasing damage taken by 8%%",
+    "Recipes": [
+        [{
+            "LogogramID": 24026,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24031,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24019,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24015,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24024,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24031,
+            "Quantity": 1
+        }]
+    ]
+}, {
+    "Name": "Catastrophe L",
+    "IconID": 64618,
+    "Type": "Ability",
+    "Recast": "300s",
+    "Description": "Deals unaspected damage to all nearby enemies with a potency of 4,000, while dealing damage with a potency of 999,999 to self.",
+    "Recipes": [
+        [{
+            "LogogramID": 24018,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24026,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24032,
+            "Quantity": 2
+        }],
+        [{
+            "LogogramID": 24026,
+            "Quantity": 3
+        }]
+    ]
+}, {
+    "Name": "Dispel L",
+    "IconID": 64619,
+    "Type": "Spell",
+    "Cast": "2.5s",
+    "Recast": "2.5s",
+    "Description": "Removes one beneficial status from target.",
+    "Recipes": [
+        [{
+            "LogogramID": 24027,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24036,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24019,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24036,
+            "Quantity": 3
+        }],
+        [{
+            "LogogramID": 24031,
+            "Quantity": 3
+        }]
+    ]
+}, {
+    "Name": "Feint L",
+    "IconID": 64620,
+    "Type": "Weaponskill",
+    "Duration": "60s",
+    "Recast": "2.5s",
+    "Description": "Delivers an attack with a potency of 100.\nAdditional Effect: Reduces target's evasion",
+    "Recipes": [
+        [{
+            "LogogramID": 24028,
+            "Quantity": 1
+        }]
+    ]
+}, {
+    "Name": "Stealth L",
+    "IconID": 64621,
+    "Type": "Ability",
+    "Recast": "15s",
+    "Description": "Blend in with your surroundings, making it impossible for most enemies to detect you, but reducing movement speed by 50%%. Has no effect on certain enemies with special sight.\nCannot be executed while in combat.\nEffect ends upon use of any action other than Sprint, or upon reuse.",
+    "Recipes": [
+        [{
+            "LogogramID": 24029,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24019,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24023,
+            "Quantity": 1
+        }]
+    ]
+}, {
+    "Name": "Aetherial Manipulation L",
+    "IconID": 64622,
+    "Type": "Ability",
+    "Recast": "5s",
+    "Description": "Rush to a target's side.\nUnable to cast if bound.",
+    "Recipes": [
+        [{
+            "LogogramID": 24030,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24029,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24016,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24030,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24028,
+            "Quantity": 1
+        }]
+    ]
+}, {
+    "Name": "Backstep L",
+    "IconID": 64623,
+    "Type": "Ability",
+    "Recast": "5s",
+    "Description": "Jump 10 yalms back from current position.\nCannot be executed while bound.",
+    "Recipes": [
+        [{
+            "LogogramID": 24030,
+            "Quantity": 1
+        }]
+    ]
+}, {
+    "Name": "Tranquilizer L",
+    "IconID": 64624,
+    "Type": "Ability",
+    "Duration": "8s",
+    "Recast": "30s",
+    "Description": "Stuns target.",
+    "Recipes": [
+        [{
+            "LogogramID": 24031,
+            "Quantity": 1
+        }]
+    ]
+}, {
+    "Name": "Bloodbath L",
+    "IconID": 64625,
+    "Type": "Ability",
+    "Duration": "45s",
+    "Recast": "60s",
+    "Description": "Converts a portion of damage dealt into HP.",
+    "Recipes": [
+        [{
+            "LogogramID": 24032,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24033,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24020,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24016,
+            "Quantity": 2
+        }, {
+            "LogogramID": 24033,
+            "Quantity": 1
+        }]
+    ]
+}, {
+    "Name": "Rejuvenate L",
+    "IconID": 64626,
+    "Type": "Ability",
+    "Recast": "30s",
+    "Description": "Instantly restores 50%% of maximum HP and MP.",
+    "Recipes": [
+        [{
+            "LogogramID": 24032,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24023,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24021,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24026,
+            "Quantity": 1
+        }]
+    ]
+}, {
+    "Name": "Haymaker L",
+    "IconID": 64627,
+    "Type": "Ability",
+    "Duration": "30s",
+    "Recast": "30s",
+    "Description": "Delivers an attack with a potency of 300.\nCan only be executed immediately after evading an attack.\nAdditional Effect: Slow +20%%",
+    "Recipes": [
+        [{
+            "LogogramID": 24020,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24025,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24016,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24037,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24025,
+            "Quantity": 1
+        }]
+    ]
+}, {
+    "Name": "Rapid Recast L",
+    "IconID": 64628,
+    "Type": "Ability",
+    "Duration": "15s",
+    "Recast": "90s",
+    "Description": "Shortens recast time for next ability used by 50%%.",
+    "Recipes": [
+        [{
+            "LogogramID": 24036,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24027,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24033,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24036,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24028,
+            "Quantity": 1
+        }]
+    ]
+}, {
+    "Name": "Cure L",
+    "IconID": 64629,
+    "Type": "Spell",
+    "Cast": "2s",
+    "Recast": "2.5s",
+    "Description": "Restores target's HP.\nCure Potency: 9,000",
+    "Recipes": [
+        [{
+            "LogogramID": 24036,
+            "Quantity": 1
+        }]
+    ]
+}, {
+    "Name": "Cure L II",
+    "IconID": 64630,
+    "Type": "Ability",
+    "Recast": "5s",
+    "Description": "Restores target's HP.\nCure Potency: 12,000",
+    "Recipes": [
+        [{
+            "LogogramID": 24034,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24033,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24019,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24033,
+            "Quantity": 3
+        }],
+        [{
+            "LogogramID": 24038,
+            "Quantity": 3
+        }]
+    ]
+}, {
+    "Name": "Stoneskin L",
+    "IconID": 64631,
+    "Type": "Spell",
+    "Duration": "30s",
+    "Cast": "2s",
+    "Recast": "2.5s",
+    "Description": "Creates a barrier around target that absorbs damage totaling 10%% of target's maximum HP.",
+    "Recipes": [
+        [{
+            "LogogramID": 24035,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24022,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24023,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24022,
+            "Quantity": 3
+        }],
+        [{
+            "LogogramID": 24023,
+            "Quantity": 3
+        }]
+    ]
+}, {
+    "Name": "Cure L III",
+    "IconID": 64632,
+    "Type": "Spell",
+    "Cast": "2s",
+    "Recast": "2.5s",
+    "Description": "Restores HP of target and all party members nearby target.\nCure Potency: 9,000",
+    "Recipes": [
+        [{
+            "LogogramID": 24032,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24019,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24034,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24033,
+            "Quantity": 2
+        }, {
+            "LogogramID": 24019,
+            "Quantity": 1
+        }]
+    ]
+}, {
+    "Name": "Regen L",
+    "IconID": 64633,
+    "Type": "Spell",
+    "Duration": "21s",
+    "Recast": "2.5s",
+    "Description": "Grants Regen to target.\nCure Potency: 2,500",
+    "Recipes": [
+        [{
+            "LogogramID": 24031,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24034,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24028,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24034,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24033,
+            "Quantity": 2
+        }, {
+            "LogogramID": 24028,
+            "Quantity": 1
+        }]
+    ]
+}, {
+    "Name": "Esuna L",
+    "IconID": 64634,
+    "Type": "Spell",
+    "Cast": "1s",
+    "Recast": "2.5s",
+    "Description": "Removes a single detrimental effect from target.",
+    "Recipes": [
+        [{
+            "LogogramID": 24036,
+            "Quantity": 1
+        }]
+    ]
+}, {
+    "Name": "Incense L",
+    "IconID": 64644,
+    "Type": "Ability",
+    "Duration": "15s",
+    "Recast": "20s",
+    "Description": "Gesture threateningly, placing yourself at the top of a target's enmity list and increasing enmity generation.",
+    "Recipes": [
+        [{
+            "LogogramID": 24037,
+            "Quantity": 1
+        }]
+    ]
+}, {
+    "Name": "Raise L",
+    "IconID": 64645,
+    "Type": "Spell",
+    "Cast": "3s",
+    "Recast": "2.5s",
+    "Description": "Resurrects target to a weakened state.",
+    "Recipes": [
+        [{
+            "LogogramID": 24038,
+            "Quantity": 1
+        }]
+    ]
+}, {
+    "Name": "Bravery L",
+    "IconID": 64635,
+    "Type": "Spell",
+    "Duration": "300s",
+    "Cast": "2.5s",
+    "Recast": "2.5s",
+    "Description": "Increases target's damage dealt by 10%%.",
+    "Recipes": [
+        [{
+            "LogogramID": 24020,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24018,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24019,
+            "Quantity": 1
+        }]
+    ]
+}, {
+    "Name": "Solid Shield L",
+    "IconID": 64636,
+    "Type": "Ability",
+    "Duration": "8s",
+    "Recast": "300s",
+    "Description": "Reduces physical damage taken by 99%%.",
+    "Recipes": [
+        [{
+            "LogogramID": 24022,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24018,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24035,
+            "Quantity": 1
+        }]
+    ]
+}, {
+    "Name": "Spell Shield L",
+    "IconID": 64637,
+    "Type": "Ability",
+    "Duration": "8s",
+    "Recast": "300s",
+    "Description": "Reduces magic damage taken by 99%%.",
+    "Recipes": [
+        [{
+            "LogogramID": 24018,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24023,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24035,
+            "Quantity": 1
+        }]
+    ]
+}, {
+    "Name": "Reflect L",
+    "IconID": 64646,
+    "Type": "Spell",
+    "Duration": "10s",
+    "Recast": "2.5s",
+    "Description": "Creates a magic-reflecting barrier around self or party member.",
+    "Recipes": [
+        [{
+            "LogogramID": 24022,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24019,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24023,
+            "Quantity": 1
+        }]
+    ]
+}, {
+    "Name": "Smite L",
+    "IconID": 64638,
+    "Type": "Ability",
+    "Recast": "45s",
+    "Description": "Delivers an attack with a potency of 1,000.\nCan only be executed when your HP is below 50%%.\nAdditional Effect: Restores an amount of own HP proportional to damage dealt",
+    "Recipes": [
+        [{
+            "LogogramID": 24031,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24020,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24026,
+            "Quantity": 1
+        }]
+    ]
+}, {
+    "Name": "Refresh L",
+    "IconID": 64647,
+    "Type": "Spell",
+    "Duration": "30s",
+    "Cast": "3s",
+    "Recast": "2.5s",
+    "Description": "Increases the amount of magia aether regenerated over time by self and nearby party members.",
+    "Recipes": [
+        [{
+            "LogogramID": 24015,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24019,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24034,
+            "Quantity": 1
+        }]
+    ]
+}, {
+    "Name": "Banish L",
+    "IconID": 64639,
+    "Type": "Spell",
+    "Duration": "60s",
+    "Cast": "2.5s",
+    "Recast": "2.5s",
+    "Description": "Deals unaspected damage with a potency of 200.\nAdditional Effect: Afflicts undead targets with Banish L, increasing damage taken by 25%%",
+    "Recipes": [
+        [{
+            "LogogramID": 24015,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24027,
+            "Quantity": 2
+        }]
+    ]
+}, {
+    "Name": "Banish L III",
+    "IconID": 64640,
+    "Type": "Spell",
+    "Duration": "60",
+    "Cast": "3s",
+    "Recast": "2.5s",
+    "Description": "Deals unaspected damage with a potency of 150 to target and all enemies nearby it.\nAdditional Effect: Afflicts undead targets with Banish L, increasing damage taken by 25%%",
+    "Recipes": [
+        [{
+            "LogogramID": 24019,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24027,
+            "Quantity": 2
+        }]
+    ]
+}, {
+    "Name": "Magic Burst L",
+    "IconID": 64648,
+    "Type": "Ability",
+    "Duration": "20s",
+    "Recast": "90s",
+    "Description": "Increases spell damage by 100%% while increasing MP cost.",
+    "Recipes": [
+        [{
+            "LogogramID": 24813,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24021,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24019,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24035,
+            "Quantity": 1
+        }]
+    ]
+}, {
+    "Name": "Double Edge L",
+    "IconID": 64649,
+    "Type": "Ability",
+    "Duration": "48s",
+    "Recast": "90s",
+    "Description": "Increases physical damage dealt while dealing damage to self over time.\nStacks increase every 3 seconds, up to a maximum of 16.\nFor each stack, physical damage dealt is increased by 15%%, and potency of damage dealt to self increases by 1,200.",
+    "Recipes": [
+        [{
+            "LogogramID": 24812,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24020,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24032,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24018,
+            "Quantity": 1
+        }]
+    ]
+}, {
+    "Name": "Eagle Eye Shot L",
+    "IconID": 64650,
+    "Type": "Weaponskill",
+    "Recast": "2.5s",
+    "Description": "Delivers a ranged attack with a potency of 80.\nPotency increases up to 1,000%% the lower the target's HP.",
+    "Recipes": [
+        [{
+            "LogogramID": 24811,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24020,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24021,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24026,
+            "Quantity": 1
+        }]
+    ]
+}, {
+    "Name": "Perception L",
+    "IconID": 64651,
+    "Type": "Ability",
+    "Recast": "3.5s",
+    "Description": "Reveals all traps within a 15-yalm radius.\nIf no traps exist within 15 yalms, detects whether any traps are present within a 36-yalm radius.\nOnly effective within dungeons.",
+    "Recipes": [
+        [{
+            "LogogramID": 24810,
+            "Quantity": 2
+        }],
+        [{
+            "LogogramID": 24029,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24027,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24810,
+            "Quantity": 1
+        }]
+    ]
+}, {
+    "Name": "Wisdom of the Elder",
+    "IconID": 64652,
+    "Type": "Spell",
+    "Recast": "10s",
+    "Description": "Increases magic damage dealt by 35%% and magic defense by 1,000, while decreasing spell MP cost.\nCannot be used with other Wisdom abilities.\nEffect ends upon reuse or upon replacement of duty action.",
+    "Recipes": [
+        [{
+            "LogogramID": 24015,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24019,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24813,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24018,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24035,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24813,
+            "Quantity": 1
+        }]
+    ]
+}, {
+    "Name": "Wisdom of the Duelist",
+    "IconID": 64653,
+    "Type": "Spell",
+    "Recast": "10s",
+    "Description": "Increases physical damage dealt by 40%% and maximum HP by 15%%.\nCannot be used with other Wisdom abilities.\nEffect ends upon reuse or upon replacement of duty action.",
+    "Recipes": [
+        [{
+            "LogogramID": 24020,
+            "Quantity": 2
+        }, {
+            "LogogramID": 24812,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24030,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24032,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24812,
+            "Quantity": 1
+        }]
+    ]
+}, {
+    "Name": "Wisdom of the Fiendhunter",
+    "IconID": 64654,
+    "Type": "Spell",
+    "Recast": "10s",
+    "Description": "Increases physical damage dealt by 25%% and evasion by 25%%.\nCannot be used with other Wisdom abilities.\nEffect ends upon reuse or upon replacement of duty action.",
+    "Recipes": [
+        [{
+            "LogogramID": 24025,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24026,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24811,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24030,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24031,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24811,
+            "Quantity": 1
+        }]
+    ]
+}, {
+    "Name": "Wisdom of the Indomitable",
+    "IconID": 64655,
+    "Type": "Spell",
+    "Recast": "10s",
+    "Description": "Increases defense by 2,000.\nGrants one stack of HP Boost each time damage equal to or greater than half of maximum HP is taken from a single-target attack.\nCannot be used with other Wisdom abilities.\nEffect ends upon reuse or upon replacement of duty action.",
+    "Recipes": [
+        [{
+            "LogogramID": 24017,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24037,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24812,
+            "Quantity": 1
+        }],
+        [{
+            "LogogramID": 24022,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24021,
+            "Quantity": 1
+        }, {
+            "LogogramID": 24812,
+            "Quantity": 1
+        }]
+    ]
+}, {
+    "Name": "Sacrifice L",
+    "IconID": 64656,
+    "Type": "Spell",
+    "Duration": "10s",
+    "Cast": "3s",
+    "Recast": "2.5s",
+    "Description": "Restores all of a KO'd target's HP.\nCannot be executed if currently afflicted with Sacrifice.\nAdditional Effect: Inflicts Sacrifice on self",
+    "Recipes": [
+        [{
+            "LogogramID": 24036,
+            "Quantity": 1
+        },{
+            "LogogramID": 24038,
+            "Quantity": 1
+        },{
+            "LogogramID": 24813,
+            "Quantity": 1
+        }]
+    ]
+}]

@@ -1,0 +1,18 @@
+{
+    "Name": "Logogram Helper",
+    "Author": "apetih",
+    "Punchline": "Helper plugin for Eureka's Logos Actions.",
+    "Description": "Shows amounts of possible combinations for Eureka's Logos Actions upon entering the Logos Manipulator.",
+    "RepoUrl": "https://github.com/apetih/LogogramHelper",
+    "ApplicableVersion": "any",
+    "Tags": [
+        "eureka",
+        "logograms"
+    ],
+    "CategoryTags": [
+        "Utility"
+    ],
+    "ImageUrls": "",
+    "IconUrl": "",
+    "DalamudApiLevel": 7
+}
