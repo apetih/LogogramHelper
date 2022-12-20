@@ -12,4 +12,6 @@ A window with all the Logos Actions should automatically pop up whenever you ent
 Click on one of the actions to show detailed information and the combinations.
 
 ## Installation
-No repo just yet.
+Add my [dalamud repository](https://github.com/apetih/MyDalamudPlugins) to Dalamud's Custom Plugin Repositories.
+
+Once added, look for Logogram Helper in the Plugin Installer.
