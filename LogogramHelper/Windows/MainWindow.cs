@@ -28,6 +28,7 @@ public class MainWindow : Window, IDisposable
         };
         this.Plugin = plugin;
         this.LogosActions = plugin.LogosActions;
+        this.ShowCloseButton = false;
         LoadIcon(60861);
     }
 
