@@ -28,8 +28,6 @@ public class MainWindow : Window, IDisposable
         };
         this.Plugin = plugin;
         this.LogosActions = plugin.LogosActions;
-        this.LogogramStock = plugin.LogogramStock;
-        this.Logograms = plugin.Logograms;
         LoadIcon(60861);
     }
 
