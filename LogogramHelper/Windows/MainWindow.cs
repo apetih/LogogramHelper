@@ -15,8 +15,6 @@ public class MainWindow : Window, IDisposable
 {
     private Plugin Plugin { get; }
     private List<LogosAction> LogosActions { get; }
-    private IDictionary<int, int> LogogramStock { get; set; }
-    private IDictionary<int, Logogram> Logograms { get; }
 
     private readonly ConcurrentDictionary<uint, TextureWrap> TextureStorage = new();
 
