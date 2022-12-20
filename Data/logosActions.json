@@ -694,7 +694,7 @@
     "Description": "Restores target's HP.\nCure Potency: 9,000",
     "Recipes": [
         [{
-            "LogogramID": 24036,
+            "LogogramID": 24033,
             "Quantity": 1
         }]
     ]
