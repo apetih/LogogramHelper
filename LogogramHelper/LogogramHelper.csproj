@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Authors>apetih</Authors>
     <Company></Company>
-    <Version>0.0.1.0</Version>
+    <Version>0.0.1.1</Version>
     <Description>Helper plugin for Eureka's Logos Actions</Description>
     <Copyright></Copyright>
     <PackageProjectUrl>https://github.com/apetih/LogogramHelper</PackageProjectUrl>
@@ -21,11 +21,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-      <Content Include="..\Data\logograms.json">
+      <Content Include="..\res\data\logograms.json">
           <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
           <Visible>false</Visible>
       </Content>
-      <Content Include="..\Data\logosActions.json">
+      <Content Include="..\res\data\logosActions.json">
           <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
           <Visible>false</Visible>
       </Content>
