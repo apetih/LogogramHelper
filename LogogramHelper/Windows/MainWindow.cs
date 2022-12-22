@@ -29,7 +29,7 @@ public class MainWindow : Window, IDisposable
         this.Plugin = plugin;
         this.LogosActions = plugin.LogosActions;
         this.ShowCloseButton = false;
-        LoadIcon(60861);
+        LoadIcon(786);
     }
 
     public void Dispose(){
@@ -42,7 +42,7 @@ public class MainWindow : Window, IDisposable
             return tex;
 
         LoadIcon(id);
-        tex = TextureStorage[60861]; 
+        tex = TextureStorage[786]; 
 
         if (tex?.ImGuiHandle == IntPtr.Zero)
             throw new NullReferenceException("Texture failed");
