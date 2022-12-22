@@ -19,8 +19,6 @@ namespace LogogramHelper
     public sealed class Plugin : IDalamudPlugin
     {
         public string Name => "Logogram Helper";
-        private const string CommandName = "/logos";
-
 
         [PluginService]
         internal GameGui GameGui { get; init; }
@@ -71,7 +69,6 @@ namespace LogogramHelper
 
         private void LoadData()
         {
-            //Load Logograms/Mnemes, IDK what the actual name is.
             using var logogramReader = new StreamReader(Path.Combine(PluginInterface.AssemblyLocation.Directory?.FullName!, "logograms.json"));
             var logogramJson = logogramReader.ReadToEnd();
             var Logos = JsonConvert.DeserializeObject<List<Logogram>>(logogramJson);
