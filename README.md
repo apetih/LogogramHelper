@@ -15,3 +15,6 @@ Click on one of the actions to show detailed information and the combinations.
 Add my [dalamud repository](https://github.com/apetih/MyDalamudPlugins) to Dalamud's Custom Plugin Repositories.
 
 Once added, look for Logogram Helper in the Plugin Installer.
+
+## Special Thanks
+* Wrex - For the plugin icon
