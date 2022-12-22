@@ -34,16 +34,24 @@ namespace LogogramHelper.Windows
         private unsafe void ObtainLogograms()
         {
             var arrayData = Framework.Instance()->GetUiModule()->GetRaptureAtkModule()->AtkModule.AtkArrayDataHolder;
-            var temporaryStock = new Dictionary<int, int>();
+            var changes = 0;
             for (var i = 1; i <= arrayData.NumberArrays[133]->IntArray[0]; i++)
             {
                 var id = arrayData.NumberArrays[133]->IntArray[(4 * i) + 1];
-                temporaryStock.Add(id, arrayData.NumberArrays[133]->IntArray[4 * i]);
+                var stock = arrayData.NumberArrays[133]->IntArray[4 * i];
+                if (!LogogramStock.ContainsKey(id))
+                {
+                    LogogramStock.Add(id, stock);
+                    changes++;
+                    continue;
+                }
+                if (LogogramStock[id] != stock) {
+                    LogogramStock[id] = stock;
+                    changes++;
+                }
             }
-            if (!(temporaryStock.Count == LogogramStock.Count && !LogogramStock.Except(temporaryStock).Any()))
+            if (changes > 0)
             {
-                LogogramStock = temporaryStock;
-                Plugin.Configuration.logogramStock = LogogramStock;
                 Plugin.Configuration.Save();
             }
         }
