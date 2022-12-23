@@ -10,7 +10,6 @@ using Newtonsoft.Json;
 using Dalamud.Data;
 using LogogramHelper.Classes;
 using System.Linq;
-using Dalamud.Logging;
 using System;
 using ImGuiScene;
 
@@ -25,19 +24,16 @@ namespace LogogramHelper
         [PluginService]
         internal static DataManager DataManager { get; private set; } = null!;
         internal DalamudPluginInterface PluginInterface { get; init; }
-        public Configuration Configuration { get; init; }
         public WindowSystem WindowSystem = new("LogogramHelper");
         internal List<LogosAction> LogosActions;
         internal IDictionary<int, Logogram> Logograms;
-        internal IDictionary<int, int> LogogramStock;
+        internal IDictionary<int, int> LogogramStock = new Dictionary<int, int>();
 
         public Plugin(
             [RequiredVersion("1.0")] DalamudPluginInterface pluginInterface)
         {
             this.PluginInterface = pluginInterface;
 
-            this.Configuration = this.PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
-            this.Configuration.Initialize(this.PluginInterface);
 
             LoadData();
 
@@ -75,14 +71,6 @@ namespace LogogramHelper
             Logograms = Logos.ToDictionary(keySelector: l => l.Id, elementSelector: l => l);
             logogramReader.Close();
 
-            LogogramStock = Configuration.logogramStock;
-            if (LogogramStock.Count == 0) {
-                LogogramStock = Logos.ToDictionary(keySelector: l => l.Id, elementSelector: l => 0);
-                Configuration.logogramStock = LogogramStock;
-                Configuration.Save();
-            }
-
-            //Load Logos Actions
             using var r = new StreamReader(Path.Combine(PluginInterface.AssemblyLocation.Directory?.FullName!, "logosActions.json"));
             var logosJson = r.ReadToEnd();
             LogosActions = JsonConvert.DeserializeObject<List<LogosAction>>(logosJson);
