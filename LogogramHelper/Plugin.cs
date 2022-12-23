@@ -12,6 +12,7 @@ using LogogramHelper.Classes;
 using System.Linq;
 using System;
 using ImGuiScene;
+using LogogramHelper.Util;
 
 namespace LogogramHelper
 {
@@ -34,7 +35,6 @@ namespace LogogramHelper
         {
             this.PluginInterface = pluginInterface;
 
-
             LoadData();
 
             WindowSystem.AddWindow(new MainWindow(this));
@@ -46,6 +46,7 @@ namespace LogogramHelper
         public void Dispose()
         {
             this.WindowSystem.RemoveAllWindows();
+            TextureManager.Dispose();
         }
 
         private void DrawUI()
@@ -65,6 +66,8 @@ namespace LogogramHelper
 
         private void LoadData()
         {
+            TextureManager.LoadIcon(786);
+
             using var logogramReader = new StreamReader(Path.Combine(PluginInterface.AssemblyLocation.Directory?.FullName!, "logograms.json"));
             var logogramJson = logogramReader.ReadToEnd();
             var Logos = JsonConvert.DeserializeObject<List<Logogram>>(logogramJson);
@@ -78,10 +81,10 @@ namespace LogogramHelper
 
         }
 
-        public void DrawLogosDetailUI(LogosAction action, TextureWrap texture)
+        public void DrawLogosDetailUI(LogosAction action)
         {
             LogosWindow lWindow = (LogosWindow)WindowSystem.GetWindow("Logos Details");
-            lWindow.SetDetails(action, texture);
+            lWindow.SetDetails(action);
             WindowSystem.GetWindow("Logos Details").IsOpen = true;
         }
     }

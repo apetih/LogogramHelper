@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Authors>apetih</Authors>
     <Company></Company>
-    <Version>0.0.1.4</Version>
+    <Version>0.0.1.5</Version>
     <Description>Helper plugin for Eureka's Logos Actions</Description>
     <Copyright></Copyright>
     <PackageProjectUrl>https://github.com/apetih/LogogramHelper</PackageProjectUrl>

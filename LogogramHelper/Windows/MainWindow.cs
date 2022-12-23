@@ -8,6 +8,7 @@ using System.Collections.Concurrent;
 using System.Threading.Tasks;
 using System.Linq;
 using LogogramHelper.Classes;
+using LogogramHelper.Util;
 
 namespace LogogramHelper.Windows;
 
@@ -15,8 +16,6 @@ public class MainWindow : Window, IDisposable
 {
     private Plugin Plugin { get; }
     private List<LogosAction> LogosActions { get; }
-
-    private readonly ConcurrentDictionary<uint, TextureWrap> TextureStorage = new();
 
     public MainWindow(Plugin plugin) : base(
         "Logos Actions", ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse | ImGuiWindowFlags.NoResize)
@@ -29,39 +28,13 @@ public class MainWindow : Window, IDisposable
         this.Plugin = plugin;
         this.LogosActions = plugin.LogosActions;
         this.ShowCloseButton = false;
-        LoadIcon(786);
     }
 
     public void Dispose(){
-        TextureStorage.Values.ToList().ForEach(v => v?.Dispose());
-        TextureStorage.Clear();
-    }
-    private TextureWrap GetTex(uint id)
-    {
-        if (TextureStorage.TryGetValue(id, out var tex) && tex?.ImGuiHandle != IntPtr.Zero)
-            return tex;
-
-        LoadIcon(id);
-        tex = TextureStorage[786]; 
-
-        if (tex?.ImGuiHandle == IntPtr.Zero)
-            throw new NullReferenceException("Texture failed");
-
-        return tex;
-    }
-
-    private async void LoadIcon(uint iconID)
-    {
-        if (iconID <= 0)
-            return;
-
-        var iconTex = await Task.Run(() => Plugin.DataManager.GetImGuiTextureIcon(iconID));
-        TextureStorage[iconID] = iconTex;
     }
 
 
-
-    public unsafe override void Draw()
+    public override void Draw()
     {
         for (var i = 0; i < 56; i++)
         {
@@ -69,8 +42,14 @@ public class MainWindow : Window, IDisposable
             var padding = 2;
             var bg = new Vector4(0.0f, 0.0f, 0.0f, 1.0f);
             var tint = new Vector4(1.0f, 1.0f, 1.0f, 1.0f);
-            if (ImGui.ImageButton(GetTex(action.IconID).ImGuiHandle, new Vector2(40, 40), new Vector2(0.0f, 0.0f), new Vector2(1.0f, 1.0f), padding, bg, tint))
-                Plugin.DrawLogosDetailUI(action, GetTex(action.IconID));
+            if (ImGui.ImageButton(TextureManager.GetTex(action.IconID).ImGuiHandle, new Vector2(40, 40), new Vector2(0.0f, 0.0f), new Vector2(1.0f, 1.0f), padding, bg, tint)) {
+                var roleTextures = new Dictionary<uint, TextureWrap>();
+                action.Roles.ForEach(role => {
+                    var tex = TextureManager.GetTex(role);
+                    roleTextures.Add(role, tex);
+                });
+                Plugin.DrawLogosDetailUI(action);
+            }
             if (ImGui.IsItemHovered())
                 ImGui.SetTooltip($"{action.Name}");
             if ((i+1) % 10 != 0) ImGui.SameLine();

@@ -3,6 +3,7 @@ using FFXIVClientStructs.FFXIV.Client.System.Framework;
 using ImGuiNET;
 using ImGuiScene;
 using LogogramHelper.Classes;
+using LogogramHelper.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,7 @@ namespace LogogramHelper.Windows
         private IDictionary<int, int> LogogramStock { get; set; }
         private IDictionary<int, Logogram> Logograms { get; }
         private TextureWrap Texture { get; set; } = null!;
+        private IDictionary<uint, TextureWrap> RoleTextures { get; set; } = null!;
         public LogosWindow(Plugin plugin) : base(
         "Logos Details", ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse | ImGuiWindowFlags.NoResize | ImGuiWindowFlags.AlwaysAutoResize)
         {
@@ -47,9 +49,9 @@ namespace LogogramHelper.Windows
                     LogogramStock[id] = stock;
             }
         }
-        public void SetDetails(LogosAction action, TextureWrap texture) {
+        public void SetDetails(LogosAction action) {
             this.Action = action;
-            this.Texture = texture;
+            this.Texture = TextureManager.GetTex(action.IconID);
         }
         public override void Draw()
         {
@@ -66,6 +68,14 @@ namespace LogogramHelper.Windows
             ImGui.SameLine();
             ImGui.BeginGroup();
             ImGui.Text(Action.Name);
+            ImGui.SameLine();
+            ImGui.BeginGroup();
+            Action.Roles.ForEach(role => {
+                var roleTexture = TextureManager.GetTex(role);
+                ImGui.Image(roleTexture.ImGuiHandle, new Vector2(18, 18), new Vector2(0.0f, 0.0f), new Vector2(1.0f, 1.0f));
+                ImGui.SameLine();
+            });
+            ImGui.EndGroup();
             var details = Action.Type.ToUpper();
             if (Action.Duration != null)
                 details += $" · DURATION: {Action.Duration}";

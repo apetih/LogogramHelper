@@ -1,6 +1,5 @@
 using LogogramHelper.Classes;
 using System;
-using Newtonsoft.Json;
 using System.Collections.Generic;
 
 namespace LogogramHelper
@@ -15,5 +14,6 @@ namespace LogogramHelper
         public string? Cast { get; set; }
         public string? Recast { get; set; }
         public List<List<Recipe>> Recipes { get; set; }
+        public List<uint> Roles { get; set; }
     }
 }
