@@ -4,10 +4,6 @@ using Dalamud.Interface.Windowing;
 using ImGuiNET;
 using ImGuiScene;
 using System.Collections.Generic;
-using System.Collections.Concurrent;
-using System.Threading.Tasks;
-using System.Linq;
-using LogogramHelper.Classes;
 using LogogramHelper.Util;
 
 namespace LogogramHelper.Windows;
