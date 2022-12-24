@@ -53,7 +53,7 @@ namespace LogogramHelper
                 var seStr = GetTooltipString(stringArrayData, 13);
                 if (seStr != null)
                 {
-                    var insert = $"\n\nPotential mnemes contained: {string.Join(", ", contents.ToArray())}";
+                    var insert = $"\n\nPotential logograms contained: {string.Join(", ", contents.ToArray())}";
                     if (!seStr.TextValue.Contains(insert)) seStr.Payloads.Insert(1, new TextPayload(insert));
 
                     SetTooltipString(stringArrayData, 13, seStr);
