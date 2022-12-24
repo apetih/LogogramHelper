@@ -1,4 +1,3 @@
-using Dalamud.Game.Command;
 using Dalamud.IoC;
 using Dalamud.Plugin;
 using System.IO;
@@ -11,7 +10,6 @@ using Dalamud.Data;
 using LogogramHelper.Classes;
 using System.Linq;
 using System;
-using ImGuiScene;
 using LogogramHelper.Util;
 
 namespace LogogramHelper
@@ -26,14 +24,17 @@ namespace LogogramHelper
         internal static DataManager DataManager { get; private set; } = null!;
         internal DalamudPluginInterface PluginInterface { get; init; }
         public WindowSystem WindowSystem = new("LogogramHelper");
+        internal LogogramHook LogogramHook { get; }
         internal List<LogosAction> LogosActions;
         internal IDictionary<int, Logogram> Logograms;
+        internal IDictionary<ulong, LogogramItem> LogogramItems;
         internal IDictionary<int, int> LogogramStock = new Dictionary<int, int>();
 
         public Plugin(
             [RequiredVersion("1.0")] DalamudPluginInterface pluginInterface)
         {
             this.PluginInterface = pluginInterface;
+            this.LogogramHook = new LogogramHook(this);
 
             LoadData();
 
@@ -47,6 +48,7 @@ namespace LogogramHelper
         {
             this.WindowSystem.RemoveAllWindows();
             TextureManager.Dispose();
+            LogogramHook.Dispose();
         }
 
         private void DrawUI()
@@ -73,6 +75,12 @@ namespace LogogramHelper
             var Logos = JsonConvert.DeserializeObject<List<Logogram>>(logogramJson);
             Logograms = Logos.ToDictionary(keySelector: l => l.Id, elementSelector: l => l);
             logogramReader.Close();
+
+            using var itemReader = new StreamReader(Path.Combine(PluginInterface.AssemblyLocation.Directory?.FullName!, "itemContents.json"));
+            var itemJson = itemReader.ReadToEnd();
+            var items = JsonConvert.DeserializeObject<List<LogogramItem>>(itemJson);
+            LogogramItems = items.ToDictionary(keySelector: i => i.Id, elementSelector: i => i);
+            itemReader.Close();
 
             using var r = new StreamReader(Path.Combine(PluginInterface.AssemblyLocation.Directory?.FullName!, "logosActions.json"));
             var logosJson = r.ReadToEnd();
