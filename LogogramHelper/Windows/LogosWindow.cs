@@ -90,7 +90,7 @@ namespace LogogramHelper.Windows
             ImGui.Spacing();
             ImGui.Text("Combinations:");
             ImGui.BeginChild($"combinations{Action.Name}", new Vector2(540.0f * fontScaling, (ImGui.GetFontSize() + 4) * Action.Recipes.Count), false, ImGuiWindowFlags.NoScrollbar);
-            ImGui.Columns(2);
+            ImGui.Columns(2, "combinations", false);
             ImGui.SetColumnWidth(0, 40f);
             ImGui.SetColumnWidth(1, 500f * fontScaling);
             Action.Recipes.ForEach(recipe => {
