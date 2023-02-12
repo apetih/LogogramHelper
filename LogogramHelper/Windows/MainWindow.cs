@@ -14,13 +14,8 @@ public class MainWindow : Window, IDisposable
     private List<LogosAction> LogosActions { get; }
 
     public MainWindow(Plugin plugin) : base(
-        "Logos Actions", ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse | ImGuiWindowFlags.NoResize)
+        "Logos Actions", ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse | ImGuiWindowFlags.AlwaysAutoResize)
     {
-        this.SizeConstraints = new WindowSizeConstraints
-        {
-            MinimumSize = new Vector2(528, 322),
-            MaximumSize = new Vector2(528, 322)
-        };
         this.Plugin = plugin;
         this.LogosActions = plugin.LogosActions;
         this.ShowCloseButton = false;
@@ -32,13 +27,14 @@ public class MainWindow : Window, IDisposable
 
     public override void Draw()
     {
+        var fontScaling = ImGui.GetFontSize() / 17;
         for (var i = 0; i < 56; i++)
         {
             var action = LogosActions[i];
             var padding = 2;
             var bg = new Vector4(0.0f, 0.0f, 0.0f, 1.0f);
             var tint = new Vector4(1.0f, 1.0f, 1.0f, 1.0f);
-            if (ImGui.ImageButton(TextureManager.GetTex(action.IconID).ImGuiHandle, new Vector2(40, 40), new Vector2(0.0f, 0.0f), new Vector2(1.0f, 1.0f), padding, bg, tint)) {
+            if (ImGui.ImageButton(TextureManager.GetTex(action.IconID).ImGuiHandle, new Vector2(40, 40) * fontScaling, new Vector2(0.0f, 0.0f), new Vector2(1.0f, 1.0f), padding, bg, tint)) {
                 var roleTextures = new Dictionary<uint, TextureWrap>();
                 action.Roles.ForEach(role => {
                     var tex = TextureManager.GetTex(role);

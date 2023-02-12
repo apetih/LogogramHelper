@@ -60,9 +60,10 @@ namespace LogogramHelper.Windows
             }
             if (Texture == null)
                 return;
-            ImGui.PushTextWrapPos(540.0f);
+            var fontScaling = ImGui.GetFontSize() / 17;
+            ImGui.PushTextWrapPos(540.0f * fontScaling);
             ImGui.BeginGroup();
-            ImGui.Image(Texture.ImGuiHandle, new Vector2(40, 40), new Vector2(0.0f, 0.0f), new Vector2(1.0f, 1.0f));
+            ImGui.Image(Texture.ImGuiHandle, new Vector2(40, 40) * fontScaling, new Vector2(0.0f, 0.0f), new Vector2(1.0f, 1.0f));
             ImGui.SameLine();
             ImGui.BeginGroup();
             ImGui.Text(Action.Name);
@@ -70,7 +71,7 @@ namespace LogogramHelper.Windows
             ImGui.BeginGroup();
             Action.Roles.ForEach(role => {
                 var roleTexture = TextureManager.GetTex(role);
-                ImGui.Image(roleTexture.ImGuiHandle, new Vector2(18, 18), new Vector2(0.0f, 0.0f), new Vector2(1.0f, 1.0f));
+                ImGui.Image(roleTexture.ImGuiHandle, new Vector2(18, 18) * fontScaling, new Vector2(0.0f, 0.0f), new Vector2(1.0f, 1.0f));
                 ImGui.SameLine();
             });
             ImGui.EndGroup();
@@ -88,10 +89,10 @@ namespace LogogramHelper.Windows
             ImGui.Text($"{Action.Description}");
             ImGui.Spacing();
             ImGui.Text("Combinations:");
-            ImGui.BeginChild($"combinations{Action.Name}", new Vector2(540.0f, (ImGui.GetFontSize() + 4) * Action.Recipes.Count), false, ImGuiWindowFlags.NoScrollbar);
+            ImGui.BeginChild($"combinations{Action.Name}", new Vector2(540.0f * fontScaling, (ImGui.GetFontSize() + 4) * Action.Recipes.Count), false, ImGuiWindowFlags.NoScrollbar);
             ImGui.Columns(2);
             ImGui.SetColumnWidth(0, 40f);
-            ImGui.SetColumnWidth(1, 500f);
+            ImGui.SetColumnWidth(1, 500f * fontScaling);
             Action.Recipes.ForEach(recipe => {
                 var total = new List<int>();
                 var logosNames = new List<string>();
