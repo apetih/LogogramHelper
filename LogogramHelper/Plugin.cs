@@ -11,6 +11,7 @@ using LogogramHelper.Classes;
 using System.Linq;
 using System;
 using LogogramHelper.Util;
+using Dalamud.Plugin.Services;
 
 namespace LogogramHelper
 {
@@ -18,30 +19,35 @@ namespace LogogramHelper
     {
         public string Name => "Logogram Helper";
 
-        [PluginService]
-        internal GameGui GameGui { get; init; }
-        [PluginService]
-        internal static DataManager DataManager { get; private set; } = null!;
-        internal DalamudPluginInterface PluginInterface { get; init; }
+        [PluginService] public static DalamudPluginInterface PluginInterface { get; private set; } = null!;
+        [PluginService] public static IGameGui GameGui { get; private set; } = null!;
+        [PluginService] public static IDataManager DataManager { get; private set; } = null!;
+        [PluginService] public static ITextureProvider TextureProvider { get; private set; } = null!;
+        [PluginService] public static IGameInteropProvider GameInteropProvider { get; private set; } = null!;
+
         public WindowSystem WindowSystem = new("LogogramHelper");
+        public MainWindow MainWindow { get; init; }
+        public LogosWindow LogosWindow { get; init; }
+
         internal LogogramHook LogogramHook { get; }
         internal List<LogosAction> LogosActions;
         internal IDictionary<int, Logogram> Logograms;
         internal IDictionary<ulong, LogogramItem> LogogramItems;
         internal IDictionary<int, int> LogogramStock = new Dictionary<int, int>();
 
-        public Plugin(
-            [RequiredVersion("1.0")] DalamudPluginInterface pluginInterface)
+        public Plugin()
         {
-            this.PluginInterface = pluginInterface;
             this.LogogramHook = new LogogramHook(this);
 
             LoadData();
 
-            WindowSystem.AddWindow(new MainWindow(this));
-            WindowSystem.AddWindow(new LogosWindow(this));
+            MainWindow = new MainWindow(this);
+            LogosWindow = new LogosWindow(this);
 
-            this.PluginInterface.UiBuilder.Draw += DrawUI;
+            WindowSystem.AddWindow(MainWindow);
+            WindowSystem.AddWindow(LogosWindow);
+
+            PluginInterface.UiBuilder.Draw += DrawUI;
         }
 
         public void Dispose()
@@ -56,14 +62,13 @@ namespace LogogramHelper
             this.WindowSystem.Draw();
             var addonPtr = GameGui.GetAddonByName("EurekaMagiciteItemSynthesis", 1);
             if (addonPtr != IntPtr.Zero)
-                WindowSystem.GetWindow("Logos Actions").IsOpen = true;
-            else {
-                if (WindowSystem.GetWindow("Logos Actions").IsOpen)
-                    WindowSystem.GetWindow("Logos Actions").IsOpen = false;
-                if (WindowSystem.GetWindow("Logos Details").IsOpen)
-                    WindowSystem.GetWindow("Logos Details").IsOpen = false;
+                MainWindow.IsOpen = true;
+            else
+            {
+                if (MainWindow.IsOpen) MainWindow.IsOpen = false;
+                if (LogosWindow.IsOpen) LogosWindow.IsOpen = false;
             }
-            
+
         }
 
         private void LoadData()
@@ -91,9 +96,8 @@ namespace LogogramHelper
 
         public void DrawLogosDetailUI(LogosAction action)
         {
-            LogosWindow lWindow = (LogosWindow)WindowSystem.GetWindow("Logos Details");
-            lWindow.SetDetails(action);
-            WindowSystem.GetWindow("Logos Details").IsOpen = true;
+            LogosWindow.SetDetails(action);
+            LogosWindow.IsOpen = true;
         }
     }
 }
