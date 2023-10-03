@@ -1,3 +1,4 @@
+using Dalamud.Interface.Internal;
 using Dalamud.Interface.Windowing;
 using FFXIVClientStructs.FFXIV.Client.System.Framework;
 using ImGuiNET;
@@ -17,8 +18,8 @@ namespace LogogramHelper.Windows
         private LogosAction Action { get; set; }
         private IDictionary<int, int> LogogramStock { get; set; }
         private IDictionary<int, Logogram> Logograms { get; }
-        private TextureWrap Texture { get; set; } = null!;
-        private IDictionary<uint, TextureWrap> RoleTextures { get; set; } = null!;
+        private IDalamudTextureWrap Texture { get; set; } = null!;
+        private IDictionary<uint, IDalamudTextureWrap> RoleTextures { get; set; } = null!;
         public LogosWindow(Plugin plugin) : base(
         "Logos Details", ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse | ImGuiWindowFlags.NoResize | ImGuiWindowFlags.AlwaysAutoResize)
         {
@@ -34,10 +35,10 @@ namespace LogogramHelper.Windows
         private unsafe void ObtainLogograms()
         {
             var arrayData = Framework.Instance()->GetUiModule()->GetRaptureAtkModule()->AtkModule.AtkArrayDataHolder;
-            for (var i = 1; i <= arrayData.NumberArrays[134]->IntArray[0]; i++)
+            for (var i = 1; i <= arrayData.NumberArrays[135]->IntArray[0]; i++)
             {
-                var id = arrayData.NumberArrays[134]->IntArray[(4 * i) + 1];
-                var stock = arrayData.NumberArrays[134]->IntArray[4 * i];
+                var id = arrayData.NumberArrays[135]->IntArray[(4 * i) + 1];
+                var stock = arrayData.NumberArrays[135]->IntArray[4 * i];
                 if (!LogogramStock.ContainsKey(id))
                 {
                     LogogramStock.Add(id, stock);
@@ -53,7 +54,7 @@ namespace LogogramHelper.Windows
         }
         public override void Draw()
         {
-            var addonShardListPtr = this.Plugin.GameGui.GetAddonByName("EurekaMagiciteItemShardList", 1);
+            var addonShardListPtr = Plugin.GameGui.GetAddonByName("EurekaMagiciteItemShardList", 1);
             if (addonShardListPtr != IntPtr.Zero)
             {
                 ObtainLogograms();

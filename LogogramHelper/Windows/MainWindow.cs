@@ -8,6 +8,7 @@ using LogogramHelper.Util;
 using Dalamud.Interface;
 using Dalamud.Interface.Components;
 using System.Diagnostics;
+using Dalamud.Interface.Internal;
 
 namespace LogogramHelper.Windows;
 
@@ -28,9 +29,9 @@ public class MainWindow : Window, IDisposable
     {
     }
 
-    string filter = "";
+    private string filter = "";
 
-    public unsafe override void Draw()
+    public override unsafe void Draw()
     {
         var fontScaling = ImGui.GetFontSize() / 17;
 
@@ -55,7 +56,7 @@ public class MainWindow : Window, IDisposable
             if (!action.Name.ToLower().Contains(filter.ToLower())) tint.W = 0.25f;
             if (ImGui.ImageButton(TextureManager.GetTex(action.IconID).ImGuiHandle, new Vector2(40, 40) * fontScaling, new Vector2(0.0f, 0.0f), new Vector2(1.0f, 1.0f), padding, bg, tint))
             {
-                var roleTextures = new Dictionary<uint, TextureWrap>();
+                var roleTextures = new Dictionary<uint, IDalamudTextureWrap>();
                 action.Roles.ForEach(role =>
                 {
                     var tex = TextureManager.GetTex(role);

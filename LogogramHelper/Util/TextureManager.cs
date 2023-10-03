@@ -1,3 +1,4 @@
+using Dalamud.Interface.Internal;
 using ImGuiScene;
 using System;
 using System.Collections.Concurrent;
@@ -10,8 +11,8 @@ namespace LogogramHelper.Util
 {
     internal static class TextureManager
     {
-        private static readonly ConcurrentDictionary<uint, TextureWrap> TextureStorage = new();
-        public static TextureWrap GetTex(uint id)
+        private static readonly ConcurrentDictionary<uint, IDalamudTextureWrap> TextureStorage = new();
+        public static IDalamudTextureWrap GetTex(uint id)
         {
             if (TextureStorage.TryGetValue(id, out var tex) && tex?.ImGuiHandle != IntPtr.Zero)
                 return tex;
@@ -30,8 +31,8 @@ namespace LogogramHelper.Util
             if (iconID <= 0)
                 return;
 
-            var iconTex = await Task.Run(() => Plugin.DataManager.GetImGuiTextureIcon(iconID));
-            TextureStorage[iconID] = iconTex;
+            var iconTex = await Task.Run(() => Plugin.TextureProvider.GetIcon(iconID));
+            if(iconTex != null) TextureStorage[iconID] = iconTex;
         }
 
         public static void Dispose() {

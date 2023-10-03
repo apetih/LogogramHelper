@@ -2,6 +2,7 @@ using Dalamud.Game.Text.SeStringHandling;
 using Dalamud.Game.Text.SeStringHandling.Payloads;
 using Dalamud.Hooking;
 using Dalamud.Memory;
+using Dalamud.Plugin.Services;
 using Dalamud.Utility.Signatures;
 using FFXIVClientStructs.FFXIV.Component.GUI;
 using System;
@@ -22,7 +23,7 @@ namespace LogogramHelper
         public LogogramHook(Plugin plugin)
         {
             this.Plugin = plugin;
-            SignatureHelper.Initialise(this);
+            Plugin.GameInteropProvider.InitializeFromAttributes(this);
             ItemDetailOnUpdateHook?.Enable();
         }
 
