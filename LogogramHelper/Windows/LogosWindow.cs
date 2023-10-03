@@ -35,10 +35,10 @@ namespace LogogramHelper.Windows
         private unsafe void ObtainLogograms()
         {
             var arrayData = Framework.Instance()->GetUiModule()->GetRaptureAtkModule()->AtkModule.AtkArrayDataHolder;
-            for (var i = 1; i <= arrayData.NumberArrays[134]->IntArray[0]; i++)
+            for (var i = 1; i <= arrayData.NumberArrays[135]->IntArray[0]; i++)
             {
-                var id = arrayData.NumberArrays[134]->IntArray[(4 * i) + 1];
-                var stock = arrayData.NumberArrays[134]->IntArray[4 * i];
+                var id = arrayData.NumberArrays[135]->IntArray[(4 * i) + 1];
+                var stock = arrayData.NumberArrays[135]->IntArray[4 * i];
                 if (!LogogramStock.ContainsKey(id))
                 {
                     LogogramStock.Add(id, stock);
