@@ -12,6 +12,13 @@ using System.Linq;
 using System;
 using LogogramHelper.Util;
 using Dalamud.Plugin.Services;
+using Dalamud.Game.Addon.Lifecycle.AddonArgTypes;
+using Dalamud.Game.Addon.Lifecycle;
+using Dalamud.Memory;
+using FFXIVClientStructs.FFXIV.Client.System.Framework;
+using FFXIVClientStructs.FFXIV.Component.GUI;
+using Dalamud.Game.Text.SeStringHandling;
+using Dalamud.Game.Text.SeStringHandling.Payloads;
 
 namespace LogogramHelper
 {
@@ -24,12 +31,12 @@ namespace LogogramHelper
         [PluginService] public static IDataManager DataManager { get; private set; } = null!;
         [PluginService] public static ITextureProvider TextureProvider { get; private set; } = null!;
         [PluginService] public static IGameInteropProvider GameInteropProvider { get; private set; } = null!;
+        [PluginService] public static IAddonLifecycle AddonLifecycle { get; private set; } = null!;
 
         public WindowSystem WindowSystem = new("LogogramHelper");
         public MainWindow MainWindow { get; init; }
         public LogosWindow LogosWindow { get; init; }
 
-        internal LogogramHook LogogramHook { get; }
         internal List<LogosAction> LogosActions;
         internal IDictionary<int, Logogram> Logograms;
         internal IDictionary<ulong, LogogramItem> LogogramItems;
@@ -37,7 +44,6 @@ namespace LogogramHelper
 
         public Plugin()
         {
-            this.LogogramHook = new LogogramHook(this);
 
             LoadData();
 
@@ -48,13 +54,14 @@ namespace LogogramHelper
             WindowSystem.AddWindow(LogosWindow);
 
             PluginInterface.UiBuilder.Draw += DrawUI;
+
+            AddonLifecycle.RegisterListener(AddonEvent.PreRequestedUpdate, "ItemDetail", ItemDetailOnUpdate);
         }
 
         public void Dispose()
         {
             this.WindowSystem.RemoveAllWindows();
             TextureManager.Dispose();
-            LogogramHook.Dispose();
         }
 
         private void DrawUI()
@@ -98,6 +105,36 @@ namespace LogogramHelper
         {
             LogosWindow.SetDetails(action);
             LogosWindow.IsOpen = true;
+        }
+
+        private unsafe void ItemDetailOnUpdate(AddonEvent type, AddonArgs args)
+        {
+            var id = GameGui.HoveredItem;
+            if (LogogramItems.ContainsKey(id))
+            {
+                var contentsId = LogogramItems[id].Contents;
+                var contents = new List<string>();
+                contentsId.ForEach(content =>
+                {
+                    contents.Add(Logograms[content].Name);
+                });
+
+                var arrayData = Framework.Instance()->GetUiModule()->GetRaptureAtkModule()->AtkModule.AtkArrayDataHolder;
+                var stringArrayData = arrayData.StringArrays[26];
+                var seStr = GetTooltipString(stringArrayData, 13);
+                if (seStr == null) return;
+
+                var insert = $"\n\nPotential logograms contained: {string.Join(", ", contents.ToArray())}";
+                if (!seStr.TextValue.Contains(insert)) seStr.Payloads.Insert(1, new TextPayload(insert));
+
+                stringArrayData->SetValue(13, seStr.Encode(), false, true, true);
+            }
+        }
+
+        private static unsafe SeString? GetTooltipString(StringArrayData* stringArrayData, int field)
+        {
+            var stringAddress = new IntPtr(stringArrayData->StringArray[field]);
+            return stringAddress != IntPtr.Zero ? MemoryHelper.ReadSeStringNullTerminated(stringAddress) : null;
         }
     }
 }
