@@ -4,11 +4,11 @@ using Dalamud.Interface.Windowing;
 using ImGuiNET;
 using ImGuiScene;
 using System.Collections.Generic;
-using LogogramHelper.Util;
 using Dalamud.Interface;
 using Dalamud.Interface.Components;
 using System.Diagnostics;
 using Dalamud.Interface.Internal;
+using Dalamud.Interface.Textures;
 
 namespace LogogramHelper.Windows;
 
@@ -54,14 +54,14 @@ public class MainWindow : Window, IDisposable
             var bg = new Vector4(0.0f, 0.0f, 0.0f, 1.0f);
             var tint = new Vector4(1.0f, 1.0f, 1.0f, 1.0f);
             if (!action.Name.ToLower().Contains(filter.ToLower())) tint.W = 0.25f;
-            if (ImGui.ImageButton(TextureManager.GetTex(action.IconID).ImGuiHandle, new Vector2(40, 40) * fontScaling, new Vector2(0.0f, 0.0f), new Vector2(1.0f, 1.0f), padding, bg, tint))
+            if (ImGui.ImageButton(Plugin.TextureProvider.GetFromGameIcon(action.IconID).GetWrapOrEmpty().ImGuiHandle, new Vector2(40, 40) * fontScaling, new Vector2(0.0f, 0.0f), new Vector2(1.0f, 1.0f), padding, bg, tint))
             {
-                var roleTextures = new Dictionary<uint, IDalamudTextureWrap>();
+                /*var roleTextures = new Dictionary<uint, ISharedImmediateTexture>();
                 action.Roles.ForEach(role =>
                 {
-                    var tex = TextureManager.GetTex(role);
+                    var tex = Plugin.TextureProvider.GetFromGameIcon(role);
                     roleTextures.Add(role, tex);
-                });
+                });*/
                 Plugin.DrawLogosDetailUI(action);
             }
             if (ImGui.IsItemHovered())

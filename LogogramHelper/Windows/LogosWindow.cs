@@ -1,10 +1,10 @@
 using Dalamud.Interface.Internal;
+using Dalamud.Interface.Textures;
 using Dalamud.Interface.Windowing;
 using FFXIVClientStructs.FFXIV.Client.System.Framework;
 using ImGuiNET;
 using ImGuiScene;
 using LogogramHelper.Classes;
-using LogogramHelper.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,8 +18,8 @@ namespace LogogramHelper.Windows
         private LogosAction Action { get; set; }
         private IDictionary<int, int> LogogramStock { get; set; }
         private IDictionary<int, Logogram> Logograms { get; }
-        private IDalamudTextureWrap Texture { get; set; } = null!;
-        private IDictionary<uint, IDalamudTextureWrap> RoleTextures { get; set; } = null!;
+        private ISharedImmediateTexture Texture { get; set; } = null!;
+        private IDictionary<uint, ISharedImmediateTexture> RoleTextures { get; set; } = null!;
         public LogosWindow(Plugin plugin) : base(
         "Logos Details", ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse | ImGuiWindowFlags.NoResize | ImGuiWindowFlags.AlwaysAutoResize)
         {
@@ -34,11 +34,11 @@ namespace LogogramHelper.Windows
         }
         private unsafe void ObtainLogograms()
         {
-            var arrayData = Framework.Instance()->GetUiModule()->GetRaptureAtkModule()->AtkModule.AtkArrayDataHolder;
-            for (var i = 1; i <= arrayData.NumberArrays[135]->IntArray[0]; i++)
+            var arrayData = Framework.Instance()->GetUIModule()->GetRaptureAtkModule()->AtkModule.AtkArrayDataHolder;
+            for (var i = 1; i <= arrayData.NumberArrays[136]->IntArray[0]; i++)
             {
-                var id = arrayData.NumberArrays[135]->IntArray[(4 * i) + 1];
-                var stock = arrayData.NumberArrays[135]->IntArray[4 * i];
+                var id = arrayData.NumberArrays[136]->IntArray[(4 * i) + 1];
+                var stock = arrayData.NumberArrays[136]->IntArray[4 * i];
                 if (!LogogramStock.ContainsKey(id))
                 {
                     LogogramStock.Add(id, stock);
@@ -50,7 +50,7 @@ namespace LogogramHelper.Windows
         }
         public void SetDetails(LogosAction action) {
             this.Action = action;
-            this.Texture = TextureManager.GetTex(action.IconID);
+            this.Texture = Plugin.TextureProvider.GetFromGameIcon(action.IconID);
         }
         public override void Draw()
         {
@@ -64,14 +64,14 @@ namespace LogogramHelper.Windows
             var fontScaling = ImGui.GetFontSize() / 17;
             ImGui.PushTextWrapPos(540.0f * fontScaling);
             ImGui.BeginGroup();
-            ImGui.Image(Texture.ImGuiHandle, new Vector2(40, 40) * fontScaling, new Vector2(0.0f, 0.0f), new Vector2(1.0f, 1.0f));
+            ImGui.Image(Texture.GetWrapOrEmpty().ImGuiHandle, new Vector2(40, 40) * fontScaling, new Vector2(0.0f, 0.0f), new Vector2(1.0f, 1.0f));
             ImGui.SameLine();
             ImGui.BeginGroup();
             ImGui.Text(Action.Name);
             ImGui.SameLine();
             ImGui.BeginGroup();
             Action.Roles.ForEach(role => {
-                var roleTexture = TextureManager.GetTex(role);
+                var roleTexture = Plugin.TextureProvider.GetFromGameIcon(role).GetWrapOrEmpty();
                 ImGui.Image(roleTexture.ImGuiHandle, new Vector2(18, 18) * fontScaling, new Vector2(0.0f, 0.0f), new Vector2(1.0f, 1.0f));
                 ImGui.SameLine();
             });

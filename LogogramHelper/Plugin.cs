@@ -10,7 +10,6 @@ using Dalamud.Data;
 using LogogramHelper.Classes;
 using System.Linq;
 using System;
-using LogogramHelper.Util;
 using Dalamud.Plugin.Services;
 using Dalamud.Game.Addon.Lifecycle.AddonArgTypes;
 using Dalamud.Game.Addon.Lifecycle;
@@ -26,7 +25,7 @@ namespace LogogramHelper
     {
         public string Name => "Logogram Helper";
 
-        [PluginService] public static DalamudPluginInterface PluginInterface { get; private set; } = null!;
+        [PluginService] public static IDalamudPluginInterface PluginInterface { get; private set; } = null!;
         [PluginService] public static IGameGui GameGui { get; private set; } = null!;
         [PluginService] public static IDataManager DataManager { get; private set; } = null!;
         [PluginService] public static ITextureProvider TextureProvider { get; private set; } = null!;
@@ -61,7 +60,6 @@ namespace LogogramHelper
         public void Dispose()
         {
             this.WindowSystem.RemoveAllWindows();
-            TextureManager.Dispose();
         }
 
         private void DrawUI()
@@ -80,7 +78,6 @@ namespace LogogramHelper
 
         private void LoadData()
         {
-            TextureManager.LoadIcon(786);
 
             using var logogramReader = new StreamReader(Path.Combine(PluginInterface.AssemblyLocation.Directory?.FullName!, "logograms.json"));
             var logogramJson = logogramReader.ReadToEnd();
@@ -119,7 +116,7 @@ namespace LogogramHelper
                     contents.Add(Logograms[content].Name);
                 });
 
-                var arrayData = Framework.Instance()->GetUiModule()->GetRaptureAtkModule()->AtkModule.AtkArrayDataHolder;
+                var arrayData = Framework.Instance()->GetUIModule()->GetRaptureAtkModule()->AtkModule.AtkArrayDataHolder;
                 var stringArrayData = arrayData.StringArrays[26];
                 var seStr = GetTooltipString(stringArrayData, 13);
                 if (seStr == null) return;
